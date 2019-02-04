@@ -2,17 +2,33 @@
 
 public class Node : MonoBehaviour
 {
-    public GameObject nodePrefab;
+    private Renderer rend;
+    private GameObject nodePrefab;
+    private Material materialRef;
+    public Color minColor;
+    public Color maxColor;
+
+    public int id = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        System.Console.WriteLine("NODE START");
+        rend = GetComponent<Renderer>();
+        if(rend)
+        {
+            rend.material = materialRef;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        float spectrumNode = AudioPeer.nodes[id];
+        Color rgb = Color.Lerp(minColor, maxColor, spectrumNode * 1000);
+        rend.material.color = rgb;
+    }
+    public void setId(int newId)
+    {
+        id = newId;
     }
 }
