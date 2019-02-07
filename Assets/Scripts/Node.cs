@@ -23,7 +23,7 @@ public class Node : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float spectrumNode = AudioPeer.nodes[id];
+        float spectrumNode = AudioPeer.spectrum[id];
         Color rgb = Color.Lerp(minColor, maxColor, spectrumNode * 1000);
         rend.material.color = rgb;
     }

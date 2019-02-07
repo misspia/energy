@@ -8,8 +8,4 @@ public class VizUtils
     {
         return newMin + (newMax - newMin) * (value - min) / (max - min);
     }
-    public static string Test(string str) 
-    {
-        return "Test string: " + str;
-    }
 }
