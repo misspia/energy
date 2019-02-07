@@ -13,8 +13,6 @@ public class Dust : MonoBehaviour
     public float minStartSpeed = 0.05f;
     public float maxStartSpeed = 5f;
 
-
-
     private ParticleSystem psComponent;
     ParticleSystem.MainModule ps;
     ParticleSystem.Particle[] particles = new ParticleSystem.Particle[AudioPeer.NUM_FREQ_BANDS];

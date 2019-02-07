@@ -33,7 +33,7 @@ public class AudioPeer: MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.volume = 0.3f;
+        audioSource.volume = 0.5f;
         audioSource.loop = true;
 
         frequency = AudioSettings.outputSampleRate;
