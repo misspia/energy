@@ -7,7 +7,7 @@ public class AudioPeer: MonoBehaviour
     AudioSource audioSource;
 
     public const int SAMPLE_SIZE = 1024;
-    private float refValue = 0.1f;
+    private float refValue = 0.01f;
     private float threshold = 0.02f;
 
     public float rmsValue; // sound pitch - RMS 
@@ -19,9 +19,13 @@ public class AudioPeer: MonoBehaviour
     public static float[] spectrum = new float[SAMPLE_SIZE];
 
     public const int NUM_FREQ_BANDS = 8;
-    public static float[] frequencyBands = new float[NUM_FREQ_BANDS];
-    public static float[] bandBuffer = new float[NUM_FREQ_BANDS];
+    private static float[] frequencyBands = new float[NUM_FREQ_BANDS];
+    private static float[] bandBuffer = new float[NUM_FREQ_BANDS];
     private float[] bufferDecrease = new float[NUM_FREQ_BANDS];
+    private float[] frequencyBandHighest = new float[NUM_FREQ_BANDS];
+
+    public static float[] audioBand = new float[NUM_FREQ_BANDS];
+    public static float[] audioBandBuffer = new float[NUM_FREQ_BANDS];
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +43,7 @@ public class AudioPeer: MonoBehaviour
         AnalyzeAudio();
         ComputeFrequencyBands();
         BandBuffer();
+        ComputeAudioBands();
     }
     private void AnalyzeAudio()
     {
@@ -80,17 +85,6 @@ public class AudioPeer: MonoBehaviour
         pitchValue = freqN * ( frequency / 2) / SAMPLE_SIZE; // convert index to frequency
 
     }
-    private void GetOutputData()
-    {
-        audioSource.GetOutputData(samples, 0);
-        float sum = 0;
-        for(var i = 0; i < SAMPLE_SIZE; i ++)
-        {
-            sum += samples[i] * samples[i];
-        }
-        rmsValue = Mathf.Sqrt(sum / SAMPLE_SIZE);
-        dbValue = Mathf.Min(20 * Mathf.Log10(rmsValue / refValue), -160);
-    }
     private void ComputeBeatValue()
     {
        // https://answers.unity.com/questions/733587/beat-detection-algorithm.html
@@ -109,7 +103,7 @@ public class AudioPeer: MonoBehaviour
             }
             for(int j = 0; j < sampleCount; j ++)
             {
-                average += samples[count] * (count + 1);
+                average += spectrum[count] * (count + 1);
                 count++;
             }
             average /= count;
@@ -133,7 +127,18 @@ public class AudioPeer: MonoBehaviour
 
         }
     }
-
+    private void ComputeAudioBands()
+    {
+        for(int i = 0; i < NUM_FREQ_BANDS; i++)
+        {
+            if(frequencyBands[i] > frequencyBandHighest[i])
+            {
+                frequencyBandHighest[i] = frequencyBands[i]; 
+            }
+            audioBand[i] = frequencyBands[i] / frequencyBandHighest[i];
+            audioBandBuffer[i] = bandBuffer[i] / frequencyBandHighest[i];
+        }
+    }
 }
 
 //https://answers.unity.com/questions/157940/getoutputdata-and-getspectrumdata-they-represent-t.html
