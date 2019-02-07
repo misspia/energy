@@ -20,7 +20,8 @@ public class AudioPeer: MonoBehaviour
 
     public const int NUM_FREQ_BANDS = 8;
     public static float[] frequencyBands = new float[NUM_FREQ_BANDS];
-
+    public static float[] bandBuffer = new float[NUM_FREQ_BANDS];
+    private float[] bufferDecrease = new float[NUM_FREQ_BANDS];
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class AudioPeer: MonoBehaviour
     {
         AnalyzeAudio();
         ComputeFrequencyBands();
+        BandBuffer();
     }
     private void AnalyzeAudio()
     {
@@ -112,6 +114,23 @@ public class AudioPeer: MonoBehaviour
             }
             average /= count;
             frequencyBands[i] = average * 10;
+        }
+    }
+    private void BandBuffer()
+    {
+        for(int g = 0; g < NUM_FREQ_BANDS; g++)
+        {
+            if(frequencyBands[g] > bandBuffer[g])
+            {
+                bandBuffer[g] = frequencyBands[g];
+                bufferDecrease[g] = 0.005f;
+            }
+            if (frequencyBands[g] < bandBuffer[g])
+            {
+                bandBuffer[g] -= bufferDecrease[g];
+                bufferDecrease[g] *= 1.2f;
+            }
+
         }
     }
 
