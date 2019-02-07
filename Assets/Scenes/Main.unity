@@ -5206,7 +5206,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.2
-      minScalar: 0.1
+      minScalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5781,7 +5781,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
   EmissionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2
@@ -9569,6 +9569,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3363e9e13eaca0444a1ca9e64f7f066d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minColor: {r: 0.43137255, g: 0.16078432, b: 0.8627451, a: 1}
+  maxColor: {r: 0.8627451, g: 0.16078432, b: 0.4987387, a: 1}
+  minEmission: 0
+  maxEmission: 8
+  minStartLife: 0.1
+  maxStartLife: 5
 --- !u!1 &988558231
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,8 @@ public class AudioPeer: MonoBehaviour
     public static float[] audioBand = new float[NUM_FREQ_BANDS];
     public static float[] audioBandBuffer = new float[NUM_FREQ_BANDS];
 
+    public static float averageBandBuffer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,7 @@ public class AudioPeer: MonoBehaviour
         ComputeFrequencyBands();
         BandBuffer();
         ComputeAudioBands();
+        ComputeAverageBandBuffer();
     }
     private void AnalyzeAudio()
     {
@@ -54,11 +57,7 @@ public class AudioPeer: MonoBehaviour
             sum += samples[i] * samples[i];
         }
         rmsValue = Mathf.Sqrt(sum / SAMPLE_SIZE); // rms = sum of squared samples
-        dbValue = 20 * Mathf.Log10(rmsValue / refValue);
-        if(dbValue < -160)
-        {
-            dbValue = -160; // clamp to -160dB min ... Math.min?
-        }
+        dbValue = Mathf.Max(-160, 20 * Mathf.Log10(rmsValue / refValue));
 
         audioSource.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
         float maxV = 0; // max spectrum value
@@ -139,6 +138,16 @@ public class AudioPeer: MonoBehaviour
             audioBandBuffer[i] = bandBuffer[i] / frequencyBandHighest[i];
         }
     }
+    private void ComputeAverageBandBuffer()
+    {
+        float sum = 0;
+        for(int i = 0; i < audioBandBuffer.Length; i++)
+        {
+            sum += audioBand[i];
+        }
+        averageBandBuffer = sum / audioBandBuffer.Length;
+    }
 }
 
 //https://answers.unity.com/questions/157940/getoutputdata-and-getspectrumdata-they-represent-t.html
+// https://youtu.be/EAjNZJ8G0Hs?t=124
