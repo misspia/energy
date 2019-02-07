@@ -123,7 +123,6 @@ GameObject:
   - component: {fileID: 88827212}
   - component: {fileID: 88827214}
   - component: {fileID: 88827213}
-  - component: {fileID: 88827215}
   - component: {fileID: 88827216}
   m_Layer: 0
   m_Name: Glow
@@ -4812,26 +4811,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &88827215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88827211}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70be4d010ce8ba41a033012452eb68c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minColor: {r: 0.43137255, g: 0.16078432, b: 0.8627451, a: 1}
-  maxColor: {r: 0.8627451, g: 0.16078432, b: 0.412049, a: 1}
-  minEmission: 10
-  maxEmission: 70
-  minStartLife: 0.5
-  maxStartLife: 3
-  minStartSpeed: 0.01
-  maxStartSpeed: 0.5
 --- !u!114 &88827216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4844,8 +4823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a662a383a4ee3454f9ee95a52ed69dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minColor: {r: 0.4, g: 0.16, b: 0.86, a: 1}
-  maxColor: {r: 0.86, g: 0.16, b: 0.5, a: 1}
+  minColor: {r: 0.16078432, g: 0.23529412, b: 0.86, a: 1}
+  maxColor: {r: 0.9607843, g: 0.08235294, b: 0.44705883, a: 1}
   enableEmission: 0
   minEmission: 0
   maxEmission: 8
@@ -4855,6 +4834,12 @@ MonoBehaviour:
   enableStartSpeed: 0
   minStartSpeed: 0.05
   maxStartSpeed: 5
+  enableStartSize: 1
+  minStartSize: 3
+  maxStartSize: 5
+  enableSimSpeed: 1
+  minSimSpeed: 0.7
+  maxSimSpeed: 3
 --- !u!1 &798348084
 GameObject:
   m_ObjectHideFlags: 0
@@ -8776,7 +8761,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 0
+    enabled: 1
     mode: 0
     ratio: 1
     lifetime:
@@ -9601,8 +9586,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a662a383a4ee3454f9ee95a52ed69dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minColor: {r: 0.4, g: 0.16, b: 0.86, a: 1}
-  maxColor: {r: 0.86, g: 0.16, b: 0.5, a: 1}
+  minColor: {r: 0.16078432, g: 0.23529412, b: 0.86, a: 0.5019608}
+  maxColor: {r: 0.86, g: 0.16, b: 0.5, a: 0.5019608}
   enableEmission: 1
   minEmission: 0
   maxEmission: 8
@@ -9612,6 +9597,12 @@ MonoBehaviour:
   enableStartSpeed: 1
   minStartSpeed: 0.05
   maxStartSpeed: 1
+  enableStartSize: 0
+  minStartSize: 2
+  maxStartSize: 4
+  enableSimSpeed: 0
+  minSimSpeed: 1
+  maxSimSpeed: 2
 --- !u!1 &988558231
 GameObject:
   m_ObjectHideFlags: 0
@@ -9624,6 +9615,7 @@ GameObject:
   - component: {fileID: 988558234}
   - component: {fileID: 988558233}
   - component: {fileID: 988558235}
+  - component: {fileID: 988558236}
   m_Layer: 0
   m_Name: Beam
   m_TagString: Untagged
@@ -14332,6 +14324,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294d861846f2c2f4ea5d6cf302d61763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &988558236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988558231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a662a383a4ee3454f9ee95a52ed69dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minColor: {r: 0.16078432, g: 0.23529412, b: 0.85882354, a: 1}
+  maxColor: {r: 0.9607843, g: 0.07843139, b: 0.44660297, a: 1}
+  enableEmission: 0
+  minEmission: 0
+  maxEmission: 8
+  enableStartLife: 1
+  minStartLife: 2
+  maxStartLife: 6
+  enableStartSpeed: 0
+  minStartSpeed: 0.05
+  maxStartSpeed: 5
+  enableStartSize: 1
+  minStartSize: 1.5
+  maxStartSize: 5
+  enableSimSpeed: 0
+  minSimSpeed: 1
+  maxSimSpeed: 2
 --- !u!1 &1145424351
 GameObject:
   m_ObjectHideFlags: 0
@@ -19043,17 +19064,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a662a383a4ee3454f9ee95a52ed69dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minColor: {r: 0.4, g: 0.16, b: 0.86, a: 1}
-  maxColor: {r: 0.86, g: 0.16, b: 0.5, a: 1}
+  minColor: {r: 0.16078432, g: 0.23529412, b: 0.86, a: 1}
+  maxColor: {r: 0.9607843, g: 0.08235294, b: 0.44705883, a: 1}
   enableEmission: 1
   minEmission: 10
   maxEmission: 100
   enableStartLife: 0
-  minStartLife: 1
-  maxStartLife: 1.5
+  minStartLife: 0.5
+  maxStartLife: 2
   enableStartSpeed: 1
   minStartSpeed: 0.01
   maxStartSpeed: 0.5
+  enableStartSize: 0
+  minStartSize: 2
+  maxStartSize: 4
+  enableSimSpeed: 0
+  minSimSpeed: 1
+  maxSimSpeed: 2
 --- !u!1 &1373385876
 GameObject:
   m_ObjectHideFlags: 0
@@ -19066,6 +19093,7 @@ GameObject:
   - component: {fileID: 1373385879}
   - component: {fileID: 1373385878}
   - component: {fileID: 1373385880}
+  - component: {fileID: 1373385881}
   m_Layer: 0
   m_Name: Smoke
   m_TagString: Untagged
@@ -19401,8 +19429,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 0.2
+      scalar: 2.5
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19717,7 +19745,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 50
+    maxNumParticles: 45
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -23765,6 +23793,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f33f93725a5d7344a2af320aa64359f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1373385881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373385876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a662a383a4ee3454f9ee95a52ed69dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minColor: {r: 0.16078432, g: 0.23529412, b: 0.86, a: 0.2509804}
+  maxColor: {r: 0.9607843, g: 0.08235294, b: 0.44705883, a: 0.2509804}
+  enableEmission: 1
+  minEmission: 20
+  maxEmission: 50
+  enableStartLife: 1
+  minStartLife: 2.5
+  maxStartLife: 5
+  enableStartSpeed: 1
+  minStartSpeed: 0.05
+  maxStartSpeed: 0.2
+  enableStartSize: 0
+  minStartSize: 2
+  maxStartSize: 4
+  enableSimSpeed: 1
+  minSimSpeed: 0.5
+  maxSimSpeed: 1.5
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0
