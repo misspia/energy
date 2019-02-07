@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 88827214}
   - component: {fileID: 88827213}
   - component: {fileID: 88827215}
+  - component: {fileID: 88827216}
   m_Layer: 0
   m_Name: Glow
   m_TagString: Untagged
@@ -4818,11 +4819,42 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88827211}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f70be4d010ce8ba41a033012452eb68c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minColor: {r: 0.43137255, g: 0.16078432, b: 0.8627451, a: 1}
+  maxColor: {r: 0.8627451, g: 0.16078432, b: 0.412049, a: 1}
+  minEmission: 10
+  maxEmission: 70
+  minStartLife: 0.5
+  maxStartLife: 3
+  minStartSpeed: 0.01
+  maxStartSpeed: 0.5
+--- !u!114 &88827216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88827211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a662a383a4ee3454f9ee95a52ed69dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minColor: {r: 0.4, g: 0.16, b: 0.86, a: 1}
+  maxColor: {r: 0.86, g: 0.16, b: 0.5, a: 1}
+  enableEmission: 0
+  minEmission: 0
+  maxEmission: 8
+  enableStartLife: 1
+  minStartLife: 0.5
+  maxStartLife: 3
+  enableStartSpeed: 0
+  minStartSpeed: 0.05
+  maxStartSpeed: 5
 --- !u!1 &798348084
 GameObject:
   m_ObjectHideFlags: 0
@@ -4869,7 +4901,7 @@ GameObject:
   - component: {fileID: 881247922}
   - component: {fileID: 881247924}
   - component: {fileID: 881247923}
-  - component: {fileID: 881247925}
+  - component: {fileID: 881247926}
   m_Layer: 0
   m_Name: Dust
   m_TagString: Untagged
@@ -9557,7 +9589,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &881247925
+--- !u!114 &881247926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9566,15 +9598,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 881247921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3363e9e13eaca0444a1ca9e64f7f066d, type: 3}
+  m_Script: {fileID: 11500000, guid: a662a383a4ee3454f9ee95a52ed69dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minColor: {r: 0.43137255, g: 0.16078432, b: 0.8627451, a: 1}
-  maxColor: {r: 0.8627451, g: 0.16078432, b: 0.4987387, a: 1}
+  minColor: {r: 0.4, g: 0.16, b: 0.86, a: 1}
+  maxColor: {r: 0.86, g: 0.16, b: 0.5, a: 1}
+  enableEmission: 1
   minEmission: 0
   maxEmission: 8
+  enableStartLife: 1
   minStartLife: 0.1
-  maxStartLife: 5
+  maxStartLife: 8
+  enableStartSpeed: 1
+  minStartSpeed: 0.05
+  maxStartSpeed: 1
 --- !u!1 &988558231
 GameObject:
   m_ObjectHideFlags: 0
@@ -19003,9 +19040,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1145424351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 106e6bdfd1bb7754991876338f22d0b5, type: 3}
+  m_Script: {fileID: 11500000, guid: a662a383a4ee3454f9ee95a52ed69dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minColor: {r: 0.4, g: 0.16, b: 0.86, a: 1}
+  maxColor: {r: 0.86, g: 0.16, b: 0.5, a: 1}
+  enableEmission: 1
+  minEmission: 10
+  maxEmission: 100
+  enableStartLife: 0
+  minStartLife: 1
+  maxStartLife: 1.5
+  enableStartSpeed: 1
+  minStartSpeed: 0.01
+  maxStartSpeed: 0.5
 --- !u!1 &1373385876
 GameObject:
   m_ObjectHideFlags: 0
