@@ -17,6 +17,15 @@ public class AudioParticles : MonoBehaviour
     public float minStartSpeed = 0.05f;
     public float maxStartSpeed = 5f;
 
+    public bool enableStartSize = false;
+    public float minStartSize = 2f;
+    public float maxStartSize = 4f;
+
+    public bool enableSimSpeed = false;
+    public float minSimSpeed = 1f;
+    public float maxSimSpeed = 2f;
+
+
     private ParticleSystem psComponent;
     ParticleSystem.MainModule ps;
     ParticleSystem.Particle[] particles = new ParticleSystem.Particle[AudioPeer.NUM_FREQ_BANDS];
@@ -49,5 +58,16 @@ public class AudioParticles : MonoBehaviour
             float startSpeedMapped = VizUtils.remap(AudioPeer.averageBandBuffer, 0f, 1f, minStartSpeed, maxStartSpeed);
             ps.startSpeed = startSpeedMapped;
         }
+        if (enableStartSize)
+        {
+            float startSizeMapped = VizUtils.remap(AudioPeer.averageBandBuffer, 0f, 1f, minStartSize, maxStartSize);
+            ps.startSize = startSizeMapped;
+        }
+        if (enableSimSpeed)
+        {
+            float simSpeedMapped = VizUtils.remap(AudioPeer.averageBandBuffer, 0f, 1f, minSimSpeed, maxSimSpeed);
+            ps.simulationSpeed = simSpeedMapped;
+        }
+
     }
 }
