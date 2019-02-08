@@ -1157,9 +1157,9 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.9240513
-          inSlope: 0.075948715
-          outSlope: 0.075948715
+          value: 0.89006996
+          inSlope: 0.10993004
+          outSlope: 0.10993004
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
@@ -1167,8 +1167,8 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 0.075948715
-          outSlope: 0.075948715
+          inSlope: 0.10993004
+          outSlope: 0.10993004
           tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
@@ -4823,23 +4823,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a662a383a4ee3454f9ee95a52ed69dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minColor: {r: 0.16078432, g: 0.23529412, b: 0.86, a: 1}
-  maxColor: {r: 0.9607843, g: 0.08235294, b: 0.44705883, a: 1}
+  isUsingPitch: 0
+  minColor: {r: 0, g: 1, b: 0.8763335, a: 1}
+  maxColor: {r: 0.7792145, g: 1, b: 0, a: 1}
   enableEmission: 0
   minEmission: 0
   maxEmission: 8
   enableStartLife: 1
   minStartLife: 0.5
-  maxStartLife: 3
+  maxStartLife: 5
   enableStartSpeed: 0
   minStartSpeed: 0.05
-  maxStartSpeed: 5
+  maxStartSpeed: 10
   enableStartSize: 1
   minStartSize: 3
-  maxStartSize: 5
+  maxStartSize: 15
   enableSimSpeed: 1
   minSimSpeed: 0.7
-  maxSimSpeed: 3
+  maxSimSpeed: 4
 --- !u!1 &798348084
 GameObject:
   m_ObjectHideFlags: 0
@@ -9586,8 +9587,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a662a383a4ee3454f9ee95a52ed69dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minColor: {r: 0.16078432, g: 0.23529412, b: 0.86, a: 0.5019608}
-  maxColor: {r: 0.86, g: 0.16, b: 0.5, a: 0.5019608}
+  isUsingPitch: 0
+  minColor: {r: 0, g: 0.7294118, b: 1, a: 1}
+  maxColor: {r: 0.78039217, g: 1, b: 0.084, a: 1}
   enableEmission: 1
   minEmission: 0
   maxEmission: 8
@@ -14336,23 +14338,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a662a383a4ee3454f9ee95a52ed69dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minColor: {r: 0.16078432, g: 0.23529412, b: 0.85882354, a: 1}
-  maxColor: {r: 0.9607843, g: 0.07843139, b: 0.44660297, a: 1}
+  isUsingPitch: 0
+  minColor: {r: 0, g: 0.6603774, b: 0.37099844, a: 1}
+  maxColor: {r: 0.7830189, g: 0, b: 0.4918966, a: 1}
   enableEmission: 0
   minEmission: 0
   maxEmission: 8
   enableStartLife: 1
   minStartLife: 2
-  maxStartLife: 6
+  maxStartLife: 10
   enableStartSpeed: 0
   minStartSpeed: 0.05
-  maxStartSpeed: 5
+  maxStartSpeed: 20
   enableStartSize: 1
-  minStartSize: 1.5
-  maxStartSize: 5
-  enableSimSpeed: 0
+  minStartSize: 0.5
+  maxStartSize: 9
+  enableSimSpeed: 1
   minSimSpeed: 1
-  maxSimSpeed: 2
+  maxSimSpeed: 5
 --- !u!1 &1145424351
 GameObject:
   m_ObjectHideFlags: 0
@@ -19064,23 +19067,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a662a383a4ee3454f9ee95a52ed69dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minColor: {r: 0.16078432, g: 0.23529412, b: 0.86, a: 1}
-  maxColor: {r: 0.9607843, g: 0.08235294, b: 0.44705883, a: 1}
+  isUsingPitch: 0
+  minColor: {r: 0, g: 0.7294118, b: 1, a: 1}
+  maxColor: {r: 0.78039217, g: 1, b: 0.084, a: 1}
   enableEmission: 1
   minEmission: 10
   maxEmission: 100
   enableStartLife: 0
   minStartLife: 0.5
-  maxStartLife: 2
+  maxStartLife: 10
   enableStartSpeed: 1
-  minStartSpeed: 0.01
-  maxStartSpeed: 0.5
-  enableStartSize: 0
-  minStartSize: 2
-  maxStartSize: 4
-  enableSimSpeed: 0
-  minSimSpeed: 1
-  maxSimSpeed: 2
+  minStartSpeed: 0.1
+  maxStartSpeed: 2
+  enableStartSize: 1
+  minStartSize: 0.05
+  maxStartSize: 1.5
+  enableSimSpeed: 1
+  minSimSpeed: 0.5
+  maxSimSpeed: 2.5
 --- !u!1 &1373385876
 GameObject:
   m_ObjectHideFlags: 0
@@ -23805,13 +23809,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a662a383a4ee3454f9ee95a52ed69dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minColor: {r: 0.16078432, g: 0.23529412, b: 0.86, a: 0.2509804}
-  maxColor: {r: 0.9607843, g: 0.08235294, b: 0.44705883, a: 0.2509804}
+  isUsingPitch: 0
+  minColor: {r: 0.8018868, g: 0.41032222, b: 0.03404235, a: 1}
+  maxColor: {r: 1, g: 0, b: 0.49108696, a: 1}
   enableEmission: 1
-  minEmission: 20
-  maxEmission: 50
+  minEmission: 10
+  maxEmission: 55
   enableStartLife: 1
-  minStartLife: 2.5
+  minStartLife: 1
   maxStartLife: 5
   enableStartSpeed: 1
   minStartSpeed: 0.05
@@ -23821,7 +23826,7 @@ MonoBehaviour:
   maxStartSize: 4
   enableSimSpeed: 1
   minSimSpeed: 0.5
-  maxSimSpeed: 1.5
+  maxSimSpeed: 2
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0
@@ -23903,7 +23908,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.06261123, g: 0.06394375, b: 0.066037714, a: 0}
+  m_BackGroundColor: {r: 0.658, g: 0.64386797, b: 0.8584906, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -24020,9 +24025,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf5bcee39383274ca428bac7e58c231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rmsValue: 0
-  dbValue: 0
-  pitchValue: 0
 --- !u!82 &1687258588
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24034,7 +24036,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 81ceefdbe07c52f48a54462b3e50dbdc,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: c78a2182de102d54f9746b91d41a2044, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4f70693efa148c945a7c6307be67f4d3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

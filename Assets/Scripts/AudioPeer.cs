@@ -7,22 +7,22 @@ public class AudioPeer: MonoBehaviour
     AudioSource audioSource;
 
     public const int SAMPLE_SIZE = 1024;
-    private float refValue = 0.01f;
-    private float threshold = 0.02f;
+    float refValue = 0.01f;
+    float threshold = 0.02f;
 
-    public float rmsValue; // sound pitch - RMS 
-    public float dbValue; // sound pitch - dB
-    public float pitchValue;
+    public static float rmsValue; // sound pitch - RMS 
+    public static float dbValue; // sound pitch - dB
+    public static float pitchValue;
 
     public static float[] samples = new float[SAMPLE_SIZE];
     public static float frequency;
     public static float[] spectrum = new float[SAMPLE_SIZE];
 
-    public const int NUM_FREQ_BANDS = 8;
-    private static float[] frequencyBands = new float[NUM_FREQ_BANDS];
-    private static float[] bandBuffer = new float[NUM_FREQ_BANDS];
-    private float[] bufferDecrease = new float[NUM_FREQ_BANDS];
-    private float[] frequencyBandHighest = new float[NUM_FREQ_BANDS];
+    public const int NUM_FREQ_BANDS = 1;
+    static float[] frequencyBands = new float[NUM_FREQ_BANDS];
+    static float[] bandBuffer = new float[NUM_FREQ_BANDS];
+    float[] bufferDecrease = new float[NUM_FREQ_BANDS];
+    float[] frequencyBandHighest = new float[NUM_FREQ_BANDS];
 
     public static float[] audioBand = new float[NUM_FREQ_BANDS];
     public static float[] audioBandBuffer = new float[NUM_FREQ_BANDS];
